@@ -1,15 +1,30 @@
 package com.adolfo.microcloud.limitsservice.entity;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Limits {
+    @Id
+    @GeneratedValue
+    private long id;
     private int minimum;
     private int maximum;
+
+    public Limits() {
+    }
 
     public Limits(int minimum, int maximum) {
         this.minimum = minimum;
         this.maximum = maximum;
     }
 
-    public Limits() {
+    public Limits(long id, int minimum, int maximum) {
+        this.id = id;
+        this.minimum = minimum;
+        this.maximum = maximum;
     }
 
     public int getMinimum() {
@@ -28,11 +43,11 @@ public class Limits {
         this.maximum = maximum;
     }
 
-    @Override
-    public String toString() {
-        return "Limits{" +
-                "minimum=" + minimum +
-                ", maximum=" + maximum +
-                '}';
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
